@@ -70,8 +70,20 @@ network.add_friendship("Jordan", "Taylor")  # Error: Taylor doesn't exist
 
 network.print_network()
 '''
-Alex: Jordan, Morgan
-Jordan: Alex
-Morgan: Alex
+Alex is friends with: Jordan, Morgan
+Jordan is friends with: Alex
+Morgan is friends with: Alex
 '''
 ```
+
+## Run the demonstration
+
+Run `python social_network.py` with Python 3. No external packages are required.
+The demonstration creates six people and eight mutual friendships and checks
+missing people, duplicate names, repeated friendships, and self-friendships.
+
+Duplicate names preserve existing connections. Repeated friendships are ignored,
+and self-friendships are rejected. Use `SocialNetwork.add_friendship()` for mutual
+connections; `Person.add_friend()` adds a connection on that individual object.
+
+The 261-word design reflection is in `design_memo.txt`.

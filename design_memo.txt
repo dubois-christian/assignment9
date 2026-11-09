@@ -1,0 +1,9 @@
+Design Memo
+
+A graph fits a social network because each person is a vertex and each friendship is an edge. Friendships in this assignment are mutual, so the graph is undirected: both people store a reference to the other. People can have many connections, belong to overlapping groups, and form cycles. Disconnected people and separate groups also fit naturally into this structure.
+
+A single list could store everyone, but it would not directly describe who knows whom. Relationships would need another structure or repeated searches. A tree imposes a hierarchy with one parent per non-root node and no cycles. Social friendships do not follow those restrictions, so a tree would lose connections or require awkward duplication.
+
+I used a dictionary to locate people by name and a list of Person references for each person's friends. Dictionary lookup and insertion take O(1) time on average. Adding a friendship checks both friend lists to avoid duplicates, costing O(d1 + d2), where d1 and d2 are the two people's numbers of friends. Appending a new reference is amortized O(1). Sets could speed up membership checks, but lists satisfy the assignment and preserve insertion order.
+
+Printing the network visits every person and every stored friendship reference, taking O(V + E) graph operations. Each undirected edge is stored twice, but total storage remains O(V + E). Actual printing time also depends on the lengths of names. An adjacency matrix would require O(V squared) space, which is wasteful for sparse networks. Duplicate names are rejected to preserve existing connections; missing people and self-friendships are reported without changing the graph.
